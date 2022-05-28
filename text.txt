@@ -1,0 +1,48 @@
+** importent    : emit => create a request and, io => receive the request
+                : socket.emit request is for all user and receive via socket.on for all user
+                : socket.broadcast.emit request is for all user except this user
+                : io.emit to everyone
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+count operation
+
+//* client side
+socket.on('countUpdated',(count)=>{
+    console.log('The count has been updated',count);
+
+})
+document.querySelector('#increament').addEventListener('click',()=>{
+    console.log('Clicked');
+    socket.emit('increment')
+})
+
+//* server side
+ socket.emit('countUpdated', count)
+    socket.on('increment', () => {
+        count ++
+        //socket.emit('countUpdated',count) <= only for one side where it change
+        io.emit('countUpdated',count) //  <= this for evrywhere globally change
+    })
+
+*/
